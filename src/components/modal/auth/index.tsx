@@ -1,36 +1,59 @@
 import {
-  Button,
+  Flex,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
-  useDisclosure,
 } from "@chakra-ui/react";
+import { useRecoilState } from "recoil";
+
+import { authModalState } from "@/atoms/auth-modal-atom";
+
+import AuthInput from "./auth-input";
+import OauthButtons from "./oauth-buttons";
+import ResetPassword from "./reset-password";
 
 type AuthModalProps = {};
 
 const AuthModal: React.FC<AuthModalProps> = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [authModal, setAuthModal] = useRecoilState(authModalState);
+
+  const handleClose = () => {
+    setAuthModal((prevState) => ({ ...prevState, isOpen: false }));
+  };
+
+  let modalTitle = "";
+  if (authModal.view === "login") modalTitle = "Log In";
+  else if (authModal.view === "signup") modalTitle = "Sign Up";
+  else if (authModal.view === "resetPassword") modalTitle = "Reset Password";
+
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={authModal.isOpen} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>{modalTitle}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Modal Body</ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
+          <ModalBody
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+          >
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              width="70%"
+              border="1px solid red"
+            >
+              <OauthButtons />
+              <AuthInput />
+              <ResetPassword />
+            </Flex>
+          </ModalBody>
         </ModalContent>
       </Modal>
     </>
