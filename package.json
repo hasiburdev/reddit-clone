@@ -6,17 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --quiet --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,html,scss}\""
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.6.1",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/open-sans": "^4.5.14",
     "@types/node": "18.16.3",
     "@types/react": "18.2.2",
     "@types/react-dom": "18.2.3",
-    "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
+    "firebase": "^9.21.0",
+    "framer-motion": "^10.12.10",
     "next": "13.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "recoil": "^0.7.7",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "eslint": "8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
   }
 }
