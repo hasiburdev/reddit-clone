@@ -34,24 +34,24 @@ const AuthModal: React.FC<AuthModalProps> = () => {
       <Modal isOpen={authModal.isOpen} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{modalTitle}</ModalHeader>
+          <ModalHeader textAlign="center">{modalTitle}</ModalHeader>
           <ModalCloseButton />
           <ModalBody
             display="flex"
             alignItems="center"
             justifyContent="center"
             flexDirection="column"
+            pb={2}
           >
             <Flex
               direction="column"
               align="center"
               justify="center"
               width="70%"
-              border="1px solid red"
             >
               <OauthButtons />
               <AuthInput />
-              <ResetPassword />
+              {/* <ResetPassword /> */}
             </Flex>
           </ModalBody>
         </ModalContent>
