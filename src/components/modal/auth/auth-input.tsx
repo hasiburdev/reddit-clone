@@ -11,13 +11,10 @@ type AuthInputProps = {};
 const AuthInput: React.FC<AuthInputProps> = () => {
   const authModal = useRecoilValue(authModalState);
 
-  let authComponent;
-  if (authModal.view === "login") authComponent = <Login />;
-  else if (authModal.view === "signup") authComponent = <SignUp />;
-
   return (
     <Flex direction="column" align="center" mt={4} width="100%">
-      {authComponent}
+      {authModal.view === "login" && <Login />}
+      {authModal.view === "signup" && <SignUp />}
     </Flex>
   );
 };
