@@ -7,13 +7,23 @@ const OauthButtons: React.FC<OauthButtonsProps> = () => {
     <Flex direction="column" width="100%" mb={4} gap={2}>
       <Button variant="oauth" height="36px">
         <Flex align="center" justify="center" py={4}>
-          <Image height="28px" mr={2} src="/images/google-logo.png" />
+          <Image
+            height="28px"
+            mr={2}
+            src="/images/google-logo.png"
+            alt="Login with Google"
+          />
           <Text fontSize="10pt">Continue with Google</Text>
         </Flex>
       </Button>
       <Button variant="oauth" height="36px">
         <Flex align="center" justify="center" py={4}>
-          <Image height="28px" mr={2} src="/images/google-logo.png" />
+          <Image
+            height="28px"
+            mr={2}
+            src="/images/google-logo.png"
+            alt="Login with GitHub"
+          />
           <Text fontSize="10pt">Continue with GitHub</Text>
         </Flex>
       </Button>
